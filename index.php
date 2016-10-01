@@ -10,7 +10,14 @@ include_once DIR.'/Lib/App.php';
 $app = \Lib\App::getInstance();
 $app->run();
 
-$event = new \Lib\Observer\Event();
-$event->addObserver(new \Lib\Observer\Observer1());
-$event->addObserver(new \Lib\Observer\Observer2());
-$event->trigger();
+$prototype = new \Lib\Canvas();
+$prototype->init();
+
+$canvas = clone $prototype;
+$canvas->rect(2,1,2 ,1 );
+$canvas->draw();
+echo "<hr>";
+
+$canvas2 = clone $prototype;
+$canvas2->rect(2,2,1 ,2 );
+$canvas2->draw();
